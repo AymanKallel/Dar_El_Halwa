@@ -1,0 +1,117 @@
+/* ===== Normalisation (toujours en premier) ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* ===== Étape 2 : charte graphique ===== */
+:root {
+  --miel: #c8912a;
+  --chocolat: #4a2c1a;
+  --creme: #fff8ef;
+  --pistache: #6b8e4e;
+  --gris-texte: #3a3a3a;
+  --espace: 1rem;
+}
+
+/* ===== Étape 6 : typographie du body ===== */
+body {
+  background-color: var(--creme);
+  color: var(--gris-texte);
+  font-family: Georgia, serif;
+  line-height: 1.5;
+  font-size: 1rem;
+}
+
+/* ===== Étape 3 : les sélecteurs ===== */
+
+/* 1. Type : tous les h2 */
+h2 {
+  color: var(--chocolat);
+  border-bottom: 2px solid var(--miel);
+}
+
+/* 2. Descendance : liens de la navigation */
+nav a {
+  text-decoration: none;
+  color: var(--chocolat);
+  font-weight: bold;
+}
+
+/* 3. Type : catégories de produits */
+strong {
+  color: var(--miel);
+}
+
+/* 4. Type : pied de page */
+footer {
+  background-color: var(--chocolat);
+  color: var(--creme);
+  text-align: center;
+}
+
+/* 5. Groupe : paragraphes ET éléments de liste */
+p, li {
+  line-height: 1.6;
+}
+
+/* 6. Identifiant : section contact */
+#contact {
+  background-color: white;
+  padding: var(--espace);
+}
+
+/* 7. Classe : mise en avant */
+.mise-en-avant {
+  font-size: 1.25rem;
+  font-style: italic;
+}
+
+/* États des liens (ordre important : LVHA) */
+a:link    { color: var(--miel); }
+a:visited { color: var(--pistache); }
+a:hover   { color: var(--chocolat); text-decoration: underline; }
+a:active  { color: var(--chocolat); }
+
+/* Corrections de spécificité */
+/* a:link (0,1,1) battrait "nav a" (0,0,2) : on garde la nav en chocolat */
+nav a:link, nav a:visited { color: var(--chocolat); }
+
+/* Le h2 du footer serait chocolat sur fond chocolat : invisible */
+footer h2 { color: var(--creme); }
+
+/* ===== Étape 5 : modèle de boîte ===== */
+.carte-info {
+  width: 400px;
+  padding: 20px;
+  border: 2px solid var(--miel);
+  margin: 30px;
+}
+
+/* ===== Étape 6 : tableau ===== */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+thead {
+  background-color: #f3e2c0;
+  color: var(--chocolat);
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+
+tbody tr td:last-child {
+  text-align: right;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #faf3e8;
+}
+
+caption {
+  caption-side: bottom;
+  font-style: italic;
+}
